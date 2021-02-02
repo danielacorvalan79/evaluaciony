@@ -1,0 +1,139 @@
+{% load static %}
+
+<!doctype html>
+<html lang="es">
+
+<head>
+  <title>Usuario</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Loading Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/style-nav.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark fixed-top bg-custom flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">SINARS - Bienvenida Julianne Moore</a>
+      <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+        data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="index.html">Logout</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light pt-4 sidebar collapse">
+          <div class="sidebar-sticky pt-3">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="main.html">
+                  <span data-feather="home"></span>
+                  <h4>Home</h4>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="examenes.html">
+                  
+                  <h4>Exámenes</h4>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="medicamento.html">
+                  <h4>Medicamentos</h4>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="calendario.html">
+                  <h4>Calendario</h4>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="col-md-10 ml-auto">
+        <div class="card mb-3">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img src="{% static 'img/julianne-moore.jpg' %}" class="card-img img-fluid" alt="...">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="card-title">Julianne Moore</h3>
+                <p class="h4"><small class="text-muted">RUT:</small>
+                  13.781.999-3</p>
+                <p class="h4"><small class="text-muted">FECHA DE NACIMIENTO</small>
+                  03/12/1960</p>
+                <p class="h4"><small class="text-muted">EDAD:</small>
+                  59 años</p>
+                <br>
+                <h3 class="card-title">Datos de Contacto</h3>
+                <p class="h4"><small class="text-muted">DIRECCIÓN:</small>
+                  Av El Bosque 5.678, Providencia</p>
+                <p class="h4"><small class="text-muted">EMAIL:</small>
+                  julianne.moore@gmail.com</p>
+                <p class="h4"><small class="text-muted">TELÉFONO:</small>
+                  (+56 9) 9234 5678</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 patologia">
+            <div class="card">
+              <h2 class="card-header">Patologías Asociadas</h2>
+              <div class="card-body">
+                <ul>
+                  <li>
+                    <p class="h5">Resistencia a la Insulina</p>
+                  </li>
+                  <li>
+                    <p class="h5">Hipertensión</p>
+                  </li>
+                  <li>
+                    <p class="h5">Hipertiroidismo</p>
+                  </li>
+                  <li>
+                    <p class="h5">Artritis Reumatoide</p>
+                  </li>
+                  <li>
+                    <p class="h5">Osteoporosis en Estudio</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+  
+    <!-- End Section: Principal -->
+
+    <footer class="text-center" style="height: 100px; background-color: black;">
+
+      <p style="padding-top: 30px; text-decoration-color: white;">Full Stack Python 154-1 - Grupo 2</p>
+
+  </footer>
+
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+      </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+      </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+      </script>
+  </body>
+
+</html>

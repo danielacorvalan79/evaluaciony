@@ -1,0 +1,358 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+    <div class="col-md-10 ml-auto">
+        <!-- Aqui va tu codigo -->
+        <div class="card">
+            <h3 class="card-header">Julianne Moore</h3>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Información general</h4>
+                                <p class="card-text">Fecha de nacimiento: xx de xxxx </p>
+                                <p class="card-text">Edad: xx años</p>
+                                <p class="card-text">Grupo sanguíneo: xxxx positivo</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Patologías crónicas</h4>
+                                <p class="card-text">Diabetes T-1</p>
+                                <p class="card-text">Hipertensión</p>
+                                <p class="card-text">Cansancio</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="agregar_examenes">
+                <div class="row" style="padding-bottom: 1em;">
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-placement="top" title="Tooltip on top" style="margin: 0.25em; width: 90%;text-align: center;" id="AddHemograma" data-target="#nuevo_hemograma"> Registrar hemograma
+                        </button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-placement="right" title="Tooltip on right" style="margin: 0.25em; width: 90%;text-align: center;" id="AddPlipidico" data-target="#nuevo_plipidico"> Registrar perfil lipídico
+                        </button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-placement="right" title="Tooltip on right" style="margin: 0.25em; width: 90%;text-align: center;" id="AddPbioquimico" data-target="#nuevo_pbioquimico"> Registrar perfil bioquímico
+                        </button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-placement="left" title="Tooltip on left" style="margin: 0.25em; width: 95%;" id="AddParterial" data-target="#nuevo_parterial"> Registrar presión arterial
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--MODAL_HEMOGRAMA-->
+        <div class="modal fade" id="nuevo_hemograma" tabindex="-1"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" >Registrar examen</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form >
+                            <div class="form-group">
+                                <label>Fecha</label>
+                                <input type="date" class="form-control" id="fecha">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="hematocrito" placeholder="Hematocrito">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="hemoglobina" placeholder="Hemoglobina">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" data-dismiss="modal" onclick='nuevo_hemograma()'>Agregar examen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--FIN MODAL HEMOGRAMA-->
+        <!--MODAL PERFIL LIPIDICO-->
+        <div class="modal fade" id="nuevo_plipidico" tabindex="-1"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" >Registrar examen</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form >
+                            <div class="form-group">
+                                <label>Fecha</label>
+                                <input type="date" class="form-control" id="fecha1" >
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="colesterol" placeholder="Colesterol">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="bilirrubina" placeholder="Bilirrubina">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" data-dismiss="modal" onclick='nuevo_plipidico()'>Agregar examen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--FIN MODAL PERFIL LIPIDICO-->
+        <!--MODAL PERFIL BIOQUIMICO-->
+        <div class="modal fade" id="nuevo_pbioquimico" tabindex="-1"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" >Registrar examen</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form >
+                            <div class="form-group">
+                                <label>Fecha</label>
+                                <input type="date" class="form-control" id="fecha3" >
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="PTD" placeholder="PTD">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="TBR" placeholder="TBR">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" data-dismiss="modal" onclick='nuevo_pbioquimico()'>Agregar examen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--FIN MODAL PERFIL BIOQUIMICO-->
+        <!--MODAL PRESION ARTERIAL-->
+        <div class="modal fade" id="nuevo_parterial" tabindex="-1"  aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" >Registrar examen</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form >
+                            <div class="form-group">
+                                <label>Fecha</label>
+                                <input type="date" class="form-control" id="fecha4" >
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="f_mañana" placeholder="Frecuencia matutina">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="f_tarde" placeholder="Frecuencia nocturna">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" data-dismiss="modal" onclick='nuevo_parterial()'>Agregar examen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-hemograma-tab" data-toggle="tab" href="#nav-hemograma" role="tab" aria-controls="nav-hemograma" aria-selected="true">Hemograma</a>
+                <a class="nav-item nav-link" id="nav-plipidico-tab" data-toggle="tab" href="#nav-plipidico" role="tab" aria-controls="nav-plipidico" aria-selected="false">Perfil lipídico</a>
+                <a class="nav-item nav-link" id="nav-pbioquimico-tab" data-toggle="tab" href="#nav-pbioquimico" role="tab" aria-controls="nav-pbioquimico" aria-selected="false">Perfil bioquímico</a>
+                <a class="nav-item nav-link" id="nav-parterial-tab" data-toggle="tab" href="#nav-parterial" role="tab" aria-controls="nav-parterial" aria-selected="false">Presión arterial</a>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-hemograma" role="tabpanel" aria-labelledby="nav-hemograma-tab">
+                <!---->
+                <div class="table-responsive">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Hematocrito</th>
+                                            <th>Hemoglobina</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabla_hemograma">
+                                        <tr>
+                                            <td>24/01/2020</td>
+                                            <td>38</td>
+                                            <td>14</td>
+                                        </tr>
+                                        <tr>
+                                            <td>24/06/2020</td>
+                                            <td>15</td>
+                                            <td>16</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-lg-6">
+                                <canvas id="graph_hemograma" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!---->
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-plipidico" role="tabpanel" aria-labelledby="nav-plipidico-tab">
+                <!---->
+                <div class="table-responsive">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>Colesterol</th>
+                                            <th>Bilirrubina</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabla_plipidico">
+                                        <tr>
+                                            <td>24/01/2020</td>
+                                            <td>38</td>
+                                            <td>14</td>
+                                        </tr>
+                                        <tr>
+                                            <td>24/06/2020</td>
+                                            <td>15</td>
+                                            <td>16</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-lg-6">
+                                <canvas id="graph_lipidico" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+            </div>
+            <div class="tab-pane fade" id="nav-pbioquimico" role="tabpanel" aria-labelledby="nav-pbioquimico-tab">
+                <!---->
+                <div class="table-responsive">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>PTD</th>
+                                            <th>TBR</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabla_pbioquimico">
+                                        <tr>
+                                            <td>24/01/2020</td>
+                                            <td>38</td>
+                                            <td>14</td>
+                                        </tr>
+                                        <tr>
+                                            <td>24/06/2020</td>
+                                            <td>15</td>
+                                            <td>16</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-lg-6">
+                                <canvas id="graph_bioquimico" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---->
+            <div class="tab-pane fade" id="nav-parterial" role="tabpanel" aria-labelledby="nav-parterial-tab">
+                <!---->
+                <div class="table-responsive">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Fecha</th>
+                                            <th>F. mañana</th>
+                                            <th>F. noche</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabla_parterial">
+                                        <tr>
+                                            <td>24/01/2020</td>
+                                            <td>138</td>
+                                            <td>114</td>
+                                        </tr>
+                                        <tr>
+                                            <td>24/06/2020</td>
+                                            <td>115</td>
+                                            <td>116</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-lg-6">
+                                <canvas id="graph_presion" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---->
+        </div>
+        <!--fin tu codigo-->
+    </div>
+    {% endblock %}
+
+
+    <footer class="text-center" style="height: 100px; background-color: black;">
+
+        <p style="padding-top: 30px; text-decoration-color: white;">Full Stack Python 154-1 - Grupo 2</p>
+
+    </footer>
+
+    <!-- jQuery, Popper.js, Bootstrap JS, Chart-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js" integrity="sha512-hZf9Qhp3rlDJBvAKvmiG+goaaKRZA6LKUO35oK6EsM0/kjPK32Yw7URqrq3Q+Nvbbt8Usss+IekL7CRn83dYmw==" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+    <script src="{% static 'js/examenes.js' %}"></script>
+
+</body>
+
+</html>

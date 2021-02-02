@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+    <h1>MEDICAMENTOS INDICADOS</h1>
+    <a href="{% url 'app1:agregar_medicamento' %}"> Agregar</a>
+    <br>
+    <br>
+
+    <table border="1px">
+        <tr>
+            <th>FECHA DE INDICACIÓN</th>
+            <th>DOSIS</th>
+            <th>MEDICAMENTO</th>
+            <th>CÓDIGO</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for elemento in medicamento %}
+        <tr>
+            <th>{{ elemento.fecha_indicacion }}</th>
+            <th>{{ elemento.nombre }}</th>
+            <th>{{ elemento.dosis }}</th>
+            <th>{{ elemento.codigo }}</th>
+            <th><a href="{% url 'app1:editar_medicamento' pk=elemento.codigo %}">Editar</a></th>
+            <th><a href="{% url 'app1:eliminar_medicamento' pk=elemento.codigo %}">Eliminar</a></th>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+{% endblock %}
+</html>
