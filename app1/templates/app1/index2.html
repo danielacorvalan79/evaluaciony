@@ -1,0 +1,82 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content%}
+<!-- Section: Principal -->
+
+{% if messages %}
+        {% for mensaje in messages %}
+        <div class="alert alert-{{mensaje.tags}} alert-dismissible fade show" role="alert">
+            <strong>{{mensaje}}</strong> 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% endfor %}
+    {% endif %}
+<div class="row justify-content-center">
+
+    <div class="mt-5">
+        <form action=""  method="post" >
+            {% csrf_token %}
+            {{form}}
+            <br>
+            <input class="btn btn-primary btn-block" type="submit" value="Entrar">
+        </form>
+        <br>
+        <a class="btn btn-primary btn-block" href="{% url 'app1:login' %}">Acceso Administrador</a>
+    </div>
+    
+</div>
+
+<!-- Section: Principal -->
+
+<!-- End Section: Principal -->
+<!-- End Section: Principal -->
+{% endblock %}
+
+
+    {% block modals %}
+    <!-- MODAL FORMS -->
+    <div class="modal" id="profile-modal" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                    <p class="modal-title" id="profile-modal-label">Perfil</p>
+                </div>
+                <div class="modal-body">
+                    Perfil
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success">Guardar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="settings-modal" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span>
+                    </button>
+                    <p class="modal-title" id="settings-modal-label">Configuración</p>
+                </div>
+                <div class="modal-body">
+                    Configuración
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success">Guardar</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MODAL FORMS -->
+    {% endblock%}

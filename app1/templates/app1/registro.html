@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body>
+    <h1>INGRESO PACIENTES</h1>
+
+    {% if messages %}
+        {% for mensaje in messages %}
+        <div class="alert alert-{{mensaje.tags}} alert-dismissible fade show" role="alert">
+            <strong>{{mensaje}}</strong> 
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        {% endfor %}
+    {% endif %}
+<div class="d-flex justify-content-around">    
+   
+    <div class="col-sm-4">
+        <form action=""  method="post">
+            {% csrf_token %}
+            
+            {{form.as_table}}
+            <br>
+            <input class="btn btn-primary btn-block" type="submit" value="Crear">
+            
+        </form>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-md">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">RUN</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">FECHA DE NACIMIENTO</th>
+                <th scope="col">EDAD</th>
+                <th scope="col">DIRECCIÓN</th>
+                <th scope="col">EMAIL</th>
+                <th scope="col">TELÉFONO</th>
+                <th scope="col">PATOLOGÍAS</th>
+                <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in registros %}
+                <tr>
+                    <th scope="row">{{row.run}}</th>
+                    <td>{{row.run}}</td>
+                    <td>{{row.nombre}}</td>
+                    <td>{{row.apellido}}</td>
+                    <td>{{row.fecha_nacimiento}}</td>
+                    <td>{{row.direccion}}</td>
+                    <td>{{row.email}}</td>
+                    <td>{{row.telefono}}</td>
+                    <td>{{row.patologias}}</td>
+                    <td>
+                        <a href="{% url 'app_admin:editar' pk=row.run %}" type="submit" class="btn btn-primary btn-sm">Editar</a>
+                        <a href="{% url 'app_admin:borrar' pk=row.run %}" type="submit" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

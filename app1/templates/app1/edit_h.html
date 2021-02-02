@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block nav-bar %} 
+    <nav class="navbar navbar-dark fixed-top bg-custom">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">Bienvenid@: {{datos.nombre}}</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+      data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="nav-link" href="{% url 'app1:principal' %}">Logout</a>
+      </li>
+    </ul>
+    
+    
+    
+    </nav>
+{% endblock %}
+
+
+{% block datos-personales %}
+    <div class="card mb-3">
+        <form action="" method="POST" novalidate>
+            {% csrf_token %}
+            {{form}}
+            <input class="btn btn-primary" type="submit" value="Actualizar">
+        </form>
+    </div>
+{% endblock %}

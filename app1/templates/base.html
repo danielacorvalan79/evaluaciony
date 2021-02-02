@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- Loading Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style-calendar.css'%}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style-nav.css' %}">
+</head>
+
+<body>
+    <!--inicio navbar horizontal-->
+    <nav class="navbar navbar-dark fixed-top bg-custom flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="#">SINARS</a>
+        <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
+            data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a href="{% url 'app1:inicio' %}">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light pt-4 sidebar collapse">
+        <div class="sidebar-sticky pt-3">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a href="{% url 'app1:lista' %}">
+                        <h4>Home</h4>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'app1:examenes' %}">
+                        
+                        <h4>Exámenes</h4>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'app1:lista_medicamentos' %}">
+                        
+                        <h4>Medicamentos</h4>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'app1:cal' %}">
+                        
+                        <h4>Calendario</h4>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--fin navbar horizontal-->
+
+
+    <div class="col-md-10 ml-auto">
+        {% block content %}
+        {% endblock %}  
+    </div>        
+    <br>
+    <br>
+    <footer class="text-center" style="height: 100px; background-color: black;">
+
+        <p style="padding-top: 30px; text-decoration-color: white;">Full Stack Python 154-1 </p>
+
+    </footer>
+
+
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+        </script>
+    <script src="{% static 'js/eventos_calendario.js' %}"></script>
+    <script src="{% static 'js/logica_calendario.js' %}"></script>
+</body>
+
+</html>

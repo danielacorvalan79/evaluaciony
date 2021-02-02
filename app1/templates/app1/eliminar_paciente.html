@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST"> 
+        {% csrf_token %} 
+        Está seguro de eliminar el paciente =  {{paciente.run}}?
+        <input type="submit" value="Sí" /> 
+        <a href="{% url 'app1:lista' %}">Cancelar</a>
+</body>
+</html>
