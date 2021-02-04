@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+
+  <div class="col-md-10 ml-auto">
+    <div class="card mb-3">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="{% static 'img/julianne-moore.jpg' %}" class="card-img img-fluid" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h3 class="card-title">Julianne Moore</h3>
+            <p class="h4"><small class="text-muted">RUT:</small>
+              13.781.999-3</p>
+            <p class="h4"><small class="text-muted">FECHA DE NACIMIENTO</small>
+              03/12/1960</p>
+            <p class="h4"><small class="text-muted">EDAD:</small>
+              59 años</p>
+            <br>
+            <h3 class="card-title">Datos de Contacto</h3>
+            <p class="h4"><small class="text-muted">DIRECCIÓN:</small>
+              Av El Bosque 5.678, Providencia</p>
+            <p class="h4"><small class="text-muted">EMAIL:</small>
+              julianne.moore@gmail.com</p>
+            <p class="h4"><small class="text-muted">TELÉFONO:</small>
+              (+56 9) 9234 5678</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 patologia">
+        <div class="card">
+          <h2 class="card-header">Patologías Asociadas</h2>
+          <div class="card-body">
+            <ul>
+              <li>
+                <p class="h5">Resistencia a la Insulina</p>
+              </li>
+              <li>
+                <p class="h5">Hipertensión</p>
+              </li>
+              <li>
+                <p class="h5">Hipertiroidismo</p>
+              </li>
+              <li>
+                <p class="h5">Artritis Reumatoide</p>
+              </li>
+              <li>
+                <p class="h5">Osteoporosis en Estudio</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
+
+{% endblock %}

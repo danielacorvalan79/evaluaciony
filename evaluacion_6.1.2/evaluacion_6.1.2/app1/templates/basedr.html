@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>SINARS</title>
+        <meta charset="utf-8">
+        <meta name="viewport" 
+            content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Loading Bootstrap CSS -->
+        <link 
+          rel="stylesheet" 
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" 
+          crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Poiret+One" 
+            rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+      </head>
+<body>
+    <header>
+    {% block barra2 %}
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand" href="{% url 'app1:inicio' %}">SINARS</a>
+
+      <!-- Navigation Bar Hamburger-->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navigation"
+        aria-expanded="false"
+        aria-controls="navigation" 
+        aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- End Navigation Bar Hamburger -->
+      <!-- Navigation Links -->
+      <div class="collapse navbar-collapse" id="navigation">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link scroll-trigger" 
+                href="{% url 'app1:inicio' %}">
+                  Inicio
+              </a>
+            </li>
+            <li class="nav-item">
+              <a 
+                class="nav-link scroll-trigger" 
+                href="{% url 'app1:lista' %}">
+                  Pacientes
+              </a>
+            </li>
+            <li class="nav-item">
+              <a 
+                class="nav-link scroll-trigger" 
+                href="{% url 'app1:lista_medicamentos' %}">
+                  Medicamentos
+              </a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link scroll-trigger" 
+                href="{% url 'app1:agregar_examen' %}">
+                  Examenes Medicos
+              </a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a 
+                class="nav-link scroll-trigger" 
+                href="{% url 'inicio' %}"> 
+                  Cerrar Sesion
+              </a>
+            </li>
+            <li><a class="nav-link scroll-trigger" href="{% url 'app1:login' %}">@{{ user.username }}</a></li>
+            {% else %}
+            <li class="nav-item">
+              <a
+                class="nav-link scroll-trigger" 
+                href="{% url 'login' %}">
+                  Iniciar Sesion
+              </a>
+            </li>
+            {% endif %}                     
+         </ul>  
+                          
+      </div>
+      <!-- Navigation Links -->
+    </nav>
+    {% endblock %}
+</header>
+</body>
+{% block body %}
+
+{% endblock %}
+</html>
