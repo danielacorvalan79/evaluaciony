@@ -8,7 +8,7 @@
 <body>
     <form method="POST"> 
         {% csrf_token %} 
-        Está seguro de eliminar el medicamento =  {{medicamento.run}}?
+        Está seguro de eliminar el medicamento =  {{medicamento.id}}?
         <input type="submit" value="Sí" /> 
         <a href="{% url 'app1:lista_medicamentos' %}">Cancelar</a>
 </body>

@@ -3,367 +3,343 @@
 
 {% block content %}
 
-    <div class="col-md-10 ml-auto">
-        <!-- Aqui va tu codigo -->
-        <div class="container-header">
-            <!--btn-container text-center-->
-            <h1>Mi Calendario Medico</h1>
-            <br><br>
-            <div class="row btn-row">
-                <div class="col-md-6">
-                    <button class="btn btn-primary btn-block" id="AddCita" data-toggle="modal"
-                        data-target="#nueva_cita">Agregar Cita</button>
-                </div>
+<div class="col-md-10 ml-auto">
+    <!-- Aqui va tu codigo -->
+    <div class="container-header">
+        <!--btn-container text-center-->
+        <h1>Mi Calendario Medico</h1>
+        <br><br>
+        <div class="row btn-row">
+            <div class="col-md-6">
+                <button class="btn btn-primary btn-block" id="AddCita" data-toggle="modal"
+                    data-target="#nueva_cita">Agregar Cita</button>
+            </div>
 
-                <div class="col-md-6">
-                    <button class="btn btn-primary btn-block" id="AddExamen" data-toggle="modal"
-                        data-target="#nuevo_examen">Agregar Examen</button>
-                </div>
+            <div class="col-md-6">
+                <button class="btn btn-primary btn-block" id="AddExamen" data-toggle="modal"
+                    data-target="#nuevo_examen">Agregar Examen</button>
             </div>
         </div>
+    </div>
 
-        <div class="container">
-            <h4>Noviembre</h4>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="container calendar-container">
-                        <div class="row calendar">
+    <div class="container">
+        <h4>Noviembre</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="container calendar-container">
+                    <div class="row calendar">
 
-                            <div class="col">
-                                <h4>L</h4>
-                            </div>
-                            <div class="col">
-                                <h4>M</h4>
-                            </div>
-                            <div class="col">
-                                <h4>M</h4>
-                            </div>
-                            <div class="col">
-                                <h4>J</h4>
-                            </div>
-                            <div class="col">
-                                <h4>V</h4>
-                            </div>
-                            <div class="col">
-                                <h4>S</h4>
-                            </div>
-                            <div class="col">
-                                <h4>D</h4>
-                            </div>
+                        <div class="col">
+                            <h4>L</h4>
                         </div>
-                        <div class="row day-calendar">
-                            <div class="col">
-                                <h4 class="mes-anterior">26</h4>
-                            </div>
-                            <div class="col">
-                                <h4 class="mes-anterior">27</h4>
-                            </div>
-                            <div class="col">
-                                <h4 class="mes-anterior">28</h4>
-                            </div>
-                            <div class="col">
-                                <h4 class="mes-anterior">29</h4>
-                            </div>
-                            <div class="col">
-                                <h4 class="mes-anterior">30</h4>
-                            </div>
-                            <div class="col">
-                                <h4 class="mes-anterior">31</h4>
-                            </div>
-                            <div class="col">
-                                <h4>1</h4>
-                            </div>
+                        <div class="col">
+                            <h4>M</h4>
                         </div>
-                        <div class="row day-calendar">
-                            <div class="col">
-                                <h4>2</h4>
-                            </div>
-                            <div class="col">
-                                <h4>3</h4>
-                            </div>
-                            <div class="col">
-                                <h4>4</h4>
-                            </div>
-                            <div class="col">
-                                <h4>5</h4>
-                            </div>
-                            <div class="col">
-                                <h4>6</h4>
-                            </div>
-                            <div class="col">
-                                <h4>7</h4>
-                            </div>
-                            <div class="col">
-                                <h4>8</h4>
-                            </div>
+                        <div class="col">
+                            <h4>M</h4>
                         </div>
-                        <div class="row day-calendar">
-                            <div class="col">
-                                <h4>9</h4>
-                            </div>
-                            <div class="col">
-                                <h4>10</h4>
-                            </div>
-                            <div class="col">
-                                <h4>11</h4>
-                            </div>
-                            <div class="col">
-                                <h4>12</h4>
-                            </div>
-                            <div class="col">
-                                <h4>13</h4>
-                            </div>
-                            <div class="col">
-                                <h4>14</h4>
-                            </div>
-                            <div class="col">
-                                <h4>15</h4>
-                            </div>
+                        <div class="col">
+                            <h4>J</h4>
                         </div>
-                        <div class="row day-calendar">
-                            <div class="col">
-                                <h4>16</h4>
-                            </div>
-                            <div class="col">
-                                <h4>17</h4>
-                            </div>
-                            <div class="col">
-                                <h4>18</h4>
-                            </div>
-                            <div class="col">
-                                <h4>19</h4>
-                            </div>
-                            <div class="col">
-                                <h4>20</h4>
-                            </div>
-                            <div class="col">
-                                <h4>21</h4>
-                            </div>
-                            <div class="col">
-                                <h4>22</h4>
-                            </div>
+                        <div class="col">
+                            <h4>V</h4>
                         </div>
-                        <div class="row day-calendar">
-                            <div class="col">
-                                <h4>23</h4>
-                            </div>
-                            <div class="col">
-                                <h4>24</h4>
-                            </div>
-                            <div class="col">
-                                <h4>25</h4>
-                            </div>
-                            <div class="col">
-                                <h4>26</h4>
-                            </div>
-                            <div class="col">
-                                <h4>27</h4>
-                            </div>
-                            <div class="col">
-                                <h4>28</h4>
-                            </div>
-                            <div class="col">
-                                <h4>29</h4>
-                            </div>
+                        <div class="col">
+                            <h4>S</h4>
                         </div>
-                        <div class="row day-calendar ">
-                            <div class="col">
-                                <h4>30</h4>
-                            </div>
-                            <div class="col">
-                                <h4 class="mes-anterior">1</h4>
-                            </div>
-                            <div class="col">
-                                <h4 class="mes-anterior">2</h4>
-                            </div>
-                            <div class="col">
-                                <h4 class="mes-anterior">3</h4>
-                            </div>
-                            <div class="col">
-                                <h4 class="mes-anterior">4</h4>
-                            </div>
-                            <div class="col">
-                                <h4 class="mes-anterior">5</h4>
-                            </div>
-                            <div class="col">
-                                <h4 class="mes-anterior">6</h4>
-                            </div>
+                        <div class="col">
+                            <h4>D</h4>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <!--NAV TABS-->
-                    <div class="container tabs">
-                        <ul class="nav nav-pills" id="myTab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link active" id="citas-tab" data-toggle="tab" href="#citas" role="tab"
-                                    aria-controls="citas" aria-selected="true">Citas</a>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
-                                    aria-controls="profile" aria-selected="false">Examenes</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="myTabContent">
-                            <div class="tab-pane fade show active" id="citas" role="tabpanel"
-                                aria-labelledby="citas-tab">
-                                <div class="table-responsive">
-                                    <table class="table table-sm">
-                                        <thead class="thead-dark">
-                                            <tr>
-                                                <th>Dr. / Dra.</th>
-                                                <th>Especialidad</th>
-                                                <th>Fecha</th>
-                                                <th>Hora</th>
-                                                <th>Lugar</th>
-                                                <th>Nota</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tabla_citas">
-                                            <tr>
-                                                <td>Marcelo Fernandez</td>
-                                                <td>Dermatología</td>
-                                                <td>05/11/2020</td>
-                                                <td>10:00</td>
-                                                <td>Clinica Isamedica</td>
-                                                <td>Llevar examenes</td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="table-responsive">
-                                    <table class="table table-sm">
-                                        <thead class="thead-dark">
-                                            <tr>
-                                                <th>Laboratorio</th>
-                                                <th>Fecha</th>
-                                                <th>Hora</th>
-                                                <th>Nota</th>
-                                                <th>Dirección</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tabla_examenes">
-                                            <tr>
-                                                <td>Clinica Isamedica</td>
-                                                <td>05/11/2020</td>
-                                                <td>10:00</td>
-                                                <td>Ir en ayuno</td>
-                                                <td>Av. siempre viva #442</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
+                    <div class="row day-calendar">
+                        <div class="col">
+                            <h4 class="mes-anterior">26</h4>
+                        </div>
+                        <div class="col">
+                            <h4 class="mes-anterior">27</h4>
+                        </div>
+                        <div class="col">
+                            <h4 class="mes-anterior">28</h4>
+                        </div>
+                        <div class="col">
+                            <h4 class="mes-anterior">29</h4>
+                        </div>
+                        <div class="col">
+                            <h4 class="mes-anterior">30</h4>
+                        </div>
+                        <div class="col">
+                            <h4 class="mes-anterior">31</h4>
+                        </div>
+                        <div class="col">
+                            <h4>1</h4>
+                        </div>
+                    </div>
+                    <div class="row day-calendar">
+                        <div class="col">
+                            <h4>2</h4>
+                        </div>
+                        <div class="col">
+                            <h4>3</h4>
+                        </div>
+                        <div class="col">
+                            <h4>4</h4>
+                        </div>
+                        <div class="col">
+                            <h4>5</h4>
+                        </div>
+                        <div class="col">
+                            <h4>6</h4>
+                        </div>
+                        <div class="col">
+                            <h4>7</h4>
+                        </div>
+                        <div class="col">
+                            <h4>8</h4>
+                        </div>
+                    </div>
+                    <div class="row day-calendar">
+                        <div class="col">
+                            <h4>9</h4>
+                        </div>
+                        <div class="col">
+                            <h4>10</h4>
+                        </div>
+                        <div class="col">
+                            <h4>11</h4>
+                        </div>
+                        <div class="col">
+                            <h4>12</h4>
+                        </div>
+                        <div class="col">
+                            <h4>13</h4>
+                        </div>
+                        <div class="col">
+                            <h4>14</h4>
+                        </div>
+                        <div class="col">
+                            <h4>15</h4>
+                        </div>
+                    </div>
+                    <div class="row day-calendar">
+                        <div class="col">
+                            <h4>16</h4>
+                        </div>
+                        <div class="col">
+                            <h4>17</h4>
+                        </div>
+                        <div class="col">
+                            <h4>18</h4>
+                        </div>
+                        <div class="col">
+                            <h4>19</h4>
+                        </div>
+                        <div class="col">
+                            <h4>20</h4>
+                        </div>
+                        <div class="col">
+                            <h4>21</h4>
+                        </div>
+                        <div class="col">
+                            <h4>22</h4>
+                        </div>
+                    </div>
+                    <div class="row day-calendar">
+                        <div class="col">
+                            <h4>23</h4>
+                        </div>
+                        <div class="col">
+                            <h4>24</h4>
+                        </div>
+                        <div class="col">
+                            <h4>25</h4>
+                        </div>
+                        <div class="col">
+                            <h4>26</h4>
+                        </div>
+                        <div class="col">
+                            <h4>27</h4>
+                        </div>
+                        <div class="col">
+                            <h4>28</h4>
+                        </div>
+                        <div class="col">
+                            <h4>29</h4>
+                        </div>
+                    </div>
+                    <div class="row day-calendar ">
+                        <div class="col">
+                            <h4>30</h4>
+                        </div>
+                        <div class="col">
+                            <h4 class="mes-anterior">1</h4>
+                        </div>
+                        <div class="col">
+                            <h4 class="mes-anterior">2</h4>
+                        </div>
+                        <div class="col">
+                            <h4 class="mes-anterior">3</h4>
+                        </div>
+                        <div class="col">
+                            <h4 class="mes-anterior">4</h4>
+                        </div>
+                        <div class="col">
+                            <h4 class="mes-anterior">5</h4>
+                        </div>
+                        <div class="col">
+                            <h4 class="mes-anterior">6</h4>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!--fin tu codigo-->
-    </div>
+            <div class="col-md-6">
+                <!--NAV TABS-->
+                <div class="container tabs">
+                    <ul class="nav nav-pills" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="citas-tab" data-toggle="tab" href="#citas" role="tab"
+                                aria-controls="citas" aria-selected="true">Citas</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                aria-controls="profile" aria-selected="false">Examenes</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="citas" role="tabpanel" aria-labelledby="citas-tab">
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Dr. / Dra.</th>
+                                            <th>Especialidad</th>
+                                            <th>Fecha</th>
+                                            <th>Hora</th>
+                                            <th>Lugar</th>
+                                            <th>Nota</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabla_citas">
+                                        <tr>
+                                            <td>Marcelo Fernandez</td>
+                                            <td>Dermatología</td>
+                                            <td>05/11/2020</td>
+                                            <td>10:00</td>
+                                            <td>Clinica Isamedica</td>
+                                            <td>Llevar examenes</td>
+                                        </tr>
 
-
-
-
-    <!-- Modal Cita-->
-    <div class="modal fade" id="nueva_cita" data-backdrop="false" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Nueva Cita</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="form-cita">
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="nombre_medico" placeholder="Nombre Médico">
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="especialidad" placeholder="Especialidad">
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>Laboratorio</th>
+                                            <th>Fecha</th>
+                                            <th>Hora</th>
+                                            <th>Nota</th>
+                                            <th>Dirección</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tabla_examenes">
+                                        <tr>
+                                            <td>Clinica Isamedica</td>
+                                            <td>05/11/2020</td>
+                                            <td>10:00</td>
+                                            <td>Ir en ayuno</td>
+                                            <td>Av. siempre viva #442</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Fecha</label>
-                            <input type="date" class="form-control" id="fecha" >
-                            <input type="time" class="form-control" id="hora" >
-                            <input type="text" class="form-control" id="lugar" placeholder="Clinica / Hospital">
-                        </div>
-                        <div class="form-group">
-                            <label  class="col-form-label">Nota:</label>
-                            <textarea class="form-control" id="nota"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-success" data-dismiss="modal" onclick='nueva_cita()'>Agregar</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!--fin tu codigo-->
+</div>
 
-    <!-- Modal Examen-->
-    <div class="modal fade" id="nuevo_examen" tabindex="-1" data-backdrop="false" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" >Nueva Cita a Examen</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="lugar_examen" placeholder="Lugar*">
-                        </div>
-                        <div class="form-group">
-                            <label>Fecha * </label>
-                            <input type="date" class="form-control" id="fecha_examen" >
-                            <input type="time" class="form-control" id="hora_examen" >
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="examen_direccion" placeholder="Dirección *">
-                        </div>
-                        <div class="form-group">
-                            <label class="col-form-label">Nota:</label>
-                            <textarea class="form-control" id="nota_examen"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-success" data-dismiss="modal" onclick='nuevo_examen()'>Agregar</button>
-                </div>
+
+
+
+<!-- Modal Cita-->
+<div class="modal fade" id="nueva_cita" data-backdrop="false" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Nueva Cita</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="form-cita">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="nombre_medico" placeholder="Nombre Médico">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="especialidad" placeholder="Especialidad">
+                    </div>
+                    <div class="form-group">
+                        <label>Fecha</label>
+                        <input type="date" class="form-control" id="fecha">
+                        <input type="time" class="form-control" id="hora">
+                        <input type="text" class="form-control" id="lugar" placeholder="Clinica / Hospital">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Nota:</label>
+                        <textarea class="form-control" id="nota"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" data-dismiss="modal" onclick='nueva_cita()'>Agregar</button>
             </div>
         </div>
     </div>
+</div>
+
+<!-- Modal Examen-->
+<div class="modal fade" id="nuevo_examen" tabindex="-1" data-backdrop="false" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nueva Cita a Examen</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="lugar_examen" placeholder="Lugar*">
+                    </div>
+                    <div class="form-group">
+                        <label>Fecha * </label>
+                        <input type="date" class="form-control" id="fecha_examen">
+                        <input type="time" class="form-control" id="hora_examen">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="examen_direccion" placeholder="Dirección *">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Nota:</label>
+                        <textarea class="form-control" id="nota_examen"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-success" data-dismiss="modal" onclick='nuevo_examen()'>Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
-    <br>
-    <br>
-    <footer class="text-center" style="height: 100px; background-color: black;">
-
-        <p style="padding-top: 30px; text-decoration-color: white;">Full Stack Python 154-1 - Grupo 2</p>
-
-    </footer>
-
-
-    <!-- jQuery, Popper.js, Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-        </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-        </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-        </script>
-    <script src="{% static 'js/eventos_calendario.js' %}"></script>
-    <script src="{% static 'js/logica_calendario.js' %}"></script>
-</body>
-
-</html>

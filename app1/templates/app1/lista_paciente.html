@@ -4,7 +4,8 @@
 {% block content %}
 <body>
     <h1>LISTA PACIENTES</h1>
-    <a href="{% url 'app1:crear' %}"> Agregar Paciente</a>
+    <a href="{% url 'app1:agregar' %}"> Agregar Paciente</a>
+    <br>
     <br>
     <table border="1px">
         <tr>
@@ -19,6 +20,7 @@
             <th>PATOLOGÍAS</th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
         {% for elemento in paciente %}
         <tr>
@@ -31,10 +33,9 @@
             <th>{{ elemento.email }}</th>
             <th>{{ elemento.telefono }}</th>
             <th>{{ elemento.patologias }}</th>
-
-
             <th><a href="{% url 'app1:editar' pk=elemento.run %}">Editar</a></th>
             <th><a href="{% url 'app1:eliminar' pk=elemento.run %}">Eliminar</a></th>
+            <th><a href="{% url 'app1:paciente_per' pk=elemento.run %}">Examenes</a></th>
         </tr>
         {% endfor %}
     </table>

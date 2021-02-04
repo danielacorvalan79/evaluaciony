@@ -1,0 +1,321 @@
+{% extends 'base_examenes.html' %}
+{% load static %}
+
+
+{% block content %}
+<!-- Aqui va tu codigo -->
+<div class="card">
+    <form method="POST">
+        {% csrf_token %}
+        {{ seleccionar }}
+        <input type="submit" value="Ver" class="btn btn-primary btn-sm">
+    </form>
+    <h3 class="card-header"> Paciente:{{hemograma.0.run}</h3>
+    <div class="card-body">
+    </div>
+</div>
+{% endblock %}
+{% block graficos %}
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-hemograma-tab" data-toggle="tab" href="#nav-hemograma" role="tab"
+            aria-controls="nav-hemograma" aria-selected="true">Hemograma</a>
+        <a class="nav-item nav-link" id="nav-perfill-tab" data-toggle="tab" href="#nav-perfill" role="tab"
+            aria-controls="nav-perfill" aria-selected="false">Perfil Lipídico</a>
+        <a class="nav-item nav-link" id="nav-perfilb-tab" data-toggle="tab" href="#nav-perfilb" role="tab"
+            aria-controls="nav-perfilb" aria-selected="false">Perfil Bioquímico</a>
+
+    </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-hemograma" role="tabpanel" aria-labelledby="nav-hemograma-tab">
+        <!---->
+        <!--NUEVO-->
+        <div id="agregar_examenes">
+            <div class="row" style="padding-bottom: 1em;">
+                <div class="col-md-3">
+                    {% if hemograma %}
+                    <a href="{% url 'app1:agregar_hemograma' pk=hemograma.0.run %}" type="submit"
+                        class="btn btn-primary btn-sm">Agregar Hemograma</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!--FIN NUEVO-->
+        <div class="table-responsive">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table class="table-sm table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Hematocrito</th>
+                                    <th>Hemoglobina</th>
+                                </tr>
+                            </thead>
+                            {% for valor in hemograma %}
+                            <tbody id="tabla_hemograma">
+                                <tr>
+                                    <td>{{valor.fechas}}</td>
+                                    <td>{{valor.hematocrito}}</td>
+                                    <td>{{valor.hemoglobina}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-lg-12">
+                        <figure class="highcharts-figure">
+                            <br>
+                            <div id="container-hemograma"></div>
+                        </figure>
+                    </div>
+                    <script type="application/javascript">
+                        Highcharts.chart('container-hemograma', {
+                            chart: {
+                                type: 'column'
+                            },
+                            title: {
+                                text: 'Serie de tiempo hemograma'
+                            },
+                            xAxis: {
+                                categories: {{ grafico_hemograma.fecha | safe }},
+                            crosshair: true
+                        },
+                            yAxis: {
+                            min: 0,
+                            title: {
+                                text: ''
+                            }
+                        },
+                            tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                            plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                            series: [{
+                                name: 'Hematocrito',
+                                data: {{ grafico_hemograma.hematocrito | safe }}
+
+                        }, {
+                                name: 'Hemoglobina',
+                                data: {{ grafico_hemograma.hemoglobina | safe }} 
+    },
+
+                        
+});
+                    </script>
+                </div>
+            </div>
+            <!---->
+        </div>
+    </div>
+    <div class="tab-pane fade" id="nav-plipidico" role="tabpanel" aria-labelledby="nav-plipidico-tab">
+        <!---->
+        <!--NUEVO-->
+        <div id="agregar_examenes1">
+            <div class="row" style="padding-bottom: 1em;">
+                <div class="col-md-3">
+                    {% if perfil_lipidico %}
+                    <a href="{% url 'app1:agregar_perfill' pk=perfil_lipidico.0.id_usuario_id %}" type="submit"
+                        class="btn btn-primary btn-sm">Agregar Perfil Lipidico</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!--FIN NUEVO-->
+        <div class="table-responsive">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table class="table-sm table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Colesterol Total</th>
+                                    <th>Trigliceridos</th>
+                                </tr>
+                            </thead>
+                            {% for valor in perfil_lipidico %}
+                            <tbody id="tabla_perfill">
+                               <tr>
+                                    <td>{{valor.fecha}}</td>
+                                    <td>{{valor.colesterol_total}}</td>
+                                    <td>{{valor.trigliceridos}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-lg-12">
+                        <figure class="highcharts-figure">
+                            <br>
+                            <div id="container-perfill"></div>
+                        </figure>
+                    </div>
+                    <script type="application/javascript">
+                        Highcharts.chart('container-perfill', {
+                            chart: {
+                                type: 'column'
+                            },
+                            title: {
+                                text: 'Serie de tiempo Perfil Lipídico'
+                            },
+
+  
+                            xAxis: {
+                                categories: {{ grafico_perfill.fecha | safe }},
+                            crosshair: true
+                        },
+                            yAxis: {
+                            min: 0,
+                            title: {
+                                text: ''
+                            }
+                        },
+                            tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                            plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                            series: [{
+                                {
+                                name: 'Colesterol total',
+                                data: {{ grafico_perfill.colesterol_total | safe }}
+
+                        },
+                                name: 'Trigliceridos',
+                                data: {{ grafico_perfill.trigliceridos | safe }}
+
+    },
+
+
+                        ]
+});
+                    </script>
+                </div>
+            </div>
+            <!---->
+        </div>
+    </div>
+    <!--PERFIL BIOQUIMICO-->
+    <div class="tab-pane fade" id="nav-pbioquimico" role="tabpanel" aria-labelledby="nav-pbioquimico-tab">
+        <!---->
+        <!--NUEVO-->
+        <div id="agregar_examenes1">
+            <div class="row" style="padding-bottom: 1em;">
+                <div class="col-md-3">
+                    {% if perfil_bioquimico %}
+                    <a href="{% url 'app_1:agregar_perfilb' pk=perfil_bioquimico.0.run %}"
+                        type="submit" class="btn btn-primary btn-sm">Agregar Perfil Bioquimico</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!--FIN NUEVO-->
+        <div class="table-responsive">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <table class="table-sm table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Glucosa</th>
+                                    <th>Biliburrina total</th>
+                                </tr>
+                            </thead>
+                            {% for valor in perfil_bioquimico %}
+                            <tbody id="tabla_perfilb">
+                                <tr>
+                                    <td>{{valor.fecha}}</td>
+                                    <td>{{valor.glucosa}}</td>
+                                    <td>{{valor.bilirrubina_total}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-lg-12">
+                        <figure class="highcharts-figure">
+                            <div id="container-perfilb"></div>
+                        </figure>
+                    </div>
+                    <script type="application/javascript">
+                        Highcharts.chart('container-perfilb', {
+                            chart: {
+                                type: 'column'
+                            },
+                            title: {
+                                text: 'Serie de tiempo Perfil Bioquímico'
+                            },
+                            xAxis: {
+                                categories: {{ grafico_perfilb.fecha | safe }},
+                            crosshair: true
+    },
+                            yAxis: {
+                            min: 0,
+                            title: {
+                                text: 'Rainfall (mm)'
+                            }
+                        },
+                            tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                            plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                            series: [{
+                                name: 'Glucosa',
+                                data: {{ grafico_perfilb.glucosa }}
+
+                            },{
+                                name: 'Bilirrubina Total',
+                                data: {{ grafico_perfilb.bilirrubina_total }}
+
+                            },
+                        ]
+});
+                    </script>
+                </div>
+            </div>
+            <!---->
+        </div>
+    </div>
+    
+                    </script>
+                </div>
+            </div>
+            <!---->
+        </div>
+    </div>
+</div>
+
+{% endblock %}

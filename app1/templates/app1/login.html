@@ -21,23 +21,13 @@
 </head>
 <body>
     <div class="container">
-        {% if messages %}
-        {% for mensaje in messages %}
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <strong>{{mensaje}}</strong> 
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-        {% endfor %}
-        {% endif %}
         <div class="d-flex justify-content-center mt-18" ">
-            
             <div class="col-sm-4 p-3 login-card ">
                 
                 <form action=""  method="post">
                     {% csrf_token %}
-                    {{form}}
+                    {{ msg }}
+                    {{form.as_table}}
                     <br>
                     <input class="btn btn-primary btn-block" type="submit" value="Entrar">
                 </form>

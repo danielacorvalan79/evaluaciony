@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <title>Document</title>
+
+<body>
+    {% block body%}
+    <h1>Lista Pacientes</h1>
+    <a href="{% url 'app1:crear' %}"> Agregar Paciente</a>
+    <div class="col-md-12" style="height: 400px;margin-left: 30%; margin-top: 5%">
+    <table border="1px">
+        <tr>
+            <th>RUN</th>
+            <th>NOMBRE</th>
+            <th>APELLIDO</th>
+            <th>FECHA DE NACIMIENTO</th>
+            <th>EDAD</th>
+            <th>DIRECCIÓN</th>
+            <th>EMAIL</th>
+            <th>TELÉFONO</th>
+            <th>PATOLOGÍAS</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for elemento in paciente %}
+        <tr>
+            <th>{{ elemento.run }}</th>
+            <th>{{ elemento.nombre }}</th>
+            <th>{{ elemento.apellido }}</th>
+            <th>{{ elemento.fecha_nacimiento }}</th>
+            <th>{{ elemento.edad }}</th>
+            <th>{{ elemento.direccion }}</th>
+            <th>{{ elemento.email }}</th>
+            <th>{{ elemento.telefono }}</th>
+            <th>{{ elemento.patologias }}</th>
+            <th><a href="{% url 'app1:editar' pk=elemento.run %}">Editar</a></th>
+            <th><a href="{% url 'app1:eliminar' pk=elemento.run %}">Eliminar</a></th>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <br>
+    <div class="chart-container" style="position: relative; height:20vh; width:40vw">
+        <canvas id="chart"></canvas>
+    </div>
+    
+    
+</div>
+<script>
+    var ctx = document.getElementById('chart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['01/01', '02/01', '03/01', '04/01', '05/01', '06/01'],
+            datasets: [{
+                label: 'niveles de azucar en la sangre',
+                data: {{ lista | safe }},
+                backgroundColor: [
+                    'rgba(20, 99, 90, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+    </script>
+</div>
+    {% endblock %} 
+</body>
+</html>
